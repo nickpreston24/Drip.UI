@@ -1,0 +1,28 @@
+﻿@model Drip.UI.Swap
+
+<div x-data="swap_setup()">
+    <label x-on:click="toggle" :class="classname" class="swap text-6xl">
+        <div class="swap-on">🥵</div>
+        <div class="swap-off">🥶</div>
+    </label>
+    <label x-on:click="toggle" :class="classname" class="swap text-6xl">
+        <div class="swap-on">🥳</div>
+        <div class="swap-off">😭</div>
+    </label>
+
+    <button x-on:click="toggle">Toggle</button>
+    <span x-text="classname"></span>
+</div>
+<script>
+    function swap_setup() {
+        return {
+            toggle() {
+                this.on = !this.on
+            },
+            on: false,
+            get classname() {
+                return this.on === true ? " swap-active" : " swap-inactive"
+            }
+        }
+    }
+</script>

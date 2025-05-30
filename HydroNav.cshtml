@@ -1,0 +1,95 @@
+﻿@model Drip.UI.HydroNav
+
+@{
+    bool has_links = @Model.links.Count > 0;
+}
+
+<div class="navbar bg-base-100 bg-primary text-primary-content">
+
+    <div class="navbar-start">
+        <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                </svg>
+            </div>
+            <ul tabindex="0"
+                class="menu menu-md dropdown-content text-primary mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                @if (has_links)
+                {
+                    @foreach (var link in @Model.links)
+                    {
+                        if (link.children.Count == 0)
+                        {
+                            <li class="text-xl">
+                                <a href="@link.url">
+                                    @* <box-icon name="@link.icon" :color="selected_box_icon_color"></box-icon> *@
+                                    @link.text
+                                </a>
+                            </li>
+                        }
+                        else if (link.children.Count > 0)
+                        {
+                            @* <div class="dropdown"> *@
+                            @*     <div tabindex="0" role="button" class="btn btn-ghost btn-circle"> *@
+                            @* *@
+                            @*     </div> *@
+                            @*     <ul tabindex="1" *@
+                            @*         class="menu menu-md dropdown-content text-primary mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"> *@
+                            @*         @foreach (var child_link in link.children) *@
+                            @*         { *@
+                            @*             <li class="text-xl"> *@
+                            @*                 <a href="@child_link.url"> *@
+                            @*                     $1$ <box-icon name="@link.icon" :color="selected_box_icon_color"></box-icon> #1# *@
+                            @*                     @child_link.text *@
+                            @*                 </a> *@
+                            @*             </li> *@
+                            @*         } *@
+                            @*     </ul> *@
+                            @* </div> *@
+                        }
+                    }
+                }
+                @if (!has_links)
+                {
+                    @Model.Slot("links")
+                }
+            </ul>
+        </div>
+
+        <div class="flex-1">
+            <a href="/" class="btn btn-ghost text-xl">@Model.Title</a>
+        </div>
+
+    </div>
+    <div class="navbar-center">
+        @Model.Slot()
+    </div>
+    <div class="navbar-end">
+        <div class="dropdown dropdown-end">
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1">
+
+                    @if (has_links)
+                    {
+                        @foreach (var link in @Model.links)
+                        {
+                            <li class="text-xl">
+                                <a href="@link.url">
+                                    @* <box-icon name="@link.icon" :color="selected_box_icon_color"></box-icon> *@
+                                    @link.text
+                                </a>
+                            </li>
+                        }
+                    }
+                    @if (!has_links)
+                    {
+                        @Model.Slot("corner")
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

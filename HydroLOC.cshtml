@@ -1,0 +1,12 @@
+@using CodeMechanic.Types
+@model Drip.UI.HydroLOC
+
+@{
+    string line_of_code = @Model.Slot().Value.NotEmpty() ? Model.Slot().Value : Model.code;
+}
+
+<pre class="@Model.classname" data-prefix="@Model.prefix_rendered">
+    <code>
+        @line_of_code
+    </code>
+</pre>

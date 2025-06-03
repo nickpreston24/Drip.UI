@@ -19,7 +19,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Areas\" />
       <Folder Include="wwwroot\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Pages\Extra\Health.cshtml" />
     </ItemGroup>
 
 </Project>

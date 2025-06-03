@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using Hydro;
 
-namespace sharpify_web.Pages.Shared.Components;
+namespace Drip.UI;
 
 public class HydroLink : HydroView
 {

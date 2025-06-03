@@ -1,0 +1,17 @@
+@using CodeMechanic.Types
+@model sharpify_web.Pages.Sandbox.Components.Tab
+
+@{
+    string tab_name = @Model.tabname.IsEmpty()
+        ? "(Empty)"
+        : @Model.tabname;
+}
+
+<input type="radio" name="@tab_name"
+       x-on:change="current_tab = '@tab_name'"
+       :checked="current_tab === '@tab_name' ? 'checked' : ''"
+       class="tab hover:bg-base-200"
+       aria-label="@tab_name"/>
+<div class="tab-content bg-base-100 border-base-300 p-6">
+    @Model.Slot()
+</div>

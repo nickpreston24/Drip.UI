@@ -1,0 +1,50 @@
+@using CodeMechanic.Types
+@using Drip.UI
+@model Drip.UI.DaisyHero
+
+@{
+    bool main_slot_open = Model.Slot().IsEmpty();
+    bool actions_slot_open = Model.Slot("actions").IsEmpty();
+    bool title_slot_open = Model.HasEmptySlot("title") && @Model.title.NotEmpty();
+}
+
+<div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content text-center">
+        <div class="max-w-md w-fit">
+
+            @if (title_slot_open)
+            {
+                @Model.Slot("title")
+            }
+
+            @if (!title_slot_open)
+            {
+                <h1 class="text-5xl font-bold">@Model.title</h1>
+            }
+
+            @if (main_slot_open)
+            {
+                <p class="py-6">
+                    @Model.Slot()
+                </p>
+            }
+            @if (!main_slot_open)
+            {
+                <p class="py-6">
+                    @Model.text
+                </p>
+            }
+            <div class="flex flex-row items-center justify-center gap-2">
+                @if (actions_slot_open)
+                {
+                    <button class="btn btn-primary">Get Started</button>
+                }
+                @if (!actions_slot_open)
+                {
+                    @Model.Slot("actions")
+                }
+            </div>
+        </div>
+    </div>
+</div>
+`

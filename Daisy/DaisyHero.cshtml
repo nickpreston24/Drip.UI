@@ -1,6 +1,7 @@
 @using CodeMechanic.Types
 @using Drip.UI
-@model Drip.UI.DaisyHero
+@using Drip.UI.Daisy
+@model DaisyHero
 
 @{
     bool main_slot_open = Model.Slot().IsEmpty();
@@ -8,16 +9,16 @@
     bool title_slot_open = Model.HasEmptySlot("title") && @Model.title.NotEmpty();
 }
 
-<div class="hero bg-base-200 min-h-screen">
+<div class="hero bg-base-200 h-fit max-h-screen shadow-md w-fit">
     <div class="hero-content text-center">
         <div class="max-w-md w-fit">
 
-            @if (title_slot_open)
+            @if (!title_slot_open)
             {
                 @Model.Slot("title")
             }
 
-            @if (!title_slot_open)
+            @if (title_slot_open)
             {
                 <h1 class="text-5xl font-bold">@Model.title</h1>
             }
@@ -35,11 +36,11 @@
                 </p>
             }
             <div class="flex flex-row items-center justify-center gap-2">
-                @if (actions_slot_open)
+                @if (!actions_slot_open)
                 {
                     <button class="btn btn-primary">Get Started</button>
                 }
-                @if (!actions_slot_open)
+                @if (actions_slot_open)
                 {
                     @Model.Slot("actions")
                 }
@@ -47,4 +48,3 @@
         </div>
     </div>
 </div>
-`

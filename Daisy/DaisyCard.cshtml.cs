@@ -2,6 +2,6 @@
 
 namespace Drip.UI;
 
-public class HydroCard : HydroView
+public class DaisyCard : HydroView
 {
 }

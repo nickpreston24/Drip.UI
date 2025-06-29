@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CodeMechanic.Types" Version="1.0.12" />
+        <PackageReference Include="CodeMechanic.Types" Version="1.0.20" />
         <PackageReference Include="Hydro" Version="1.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.5" />
     </ItemGroup>

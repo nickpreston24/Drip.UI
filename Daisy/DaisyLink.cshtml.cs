@@ -3,7 +3,7 @@ using Hydro;
 
 namespace Drip.UI;
 
-public class HydroLink : HydroView
+public class DaisyLink : HydroView
 {
     // todo: replace with better url check
     private static Regex url_regex = new Regex(

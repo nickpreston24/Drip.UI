@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 namespace Drip.UI;
 
 [HtmlTargetElement("loc")]
-public class HydroLOC : HydroView
+public class DasiyLOC : HydroView
 {
     public uint prefix { get; set; } = 1;
 

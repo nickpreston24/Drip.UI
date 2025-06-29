@@ -1,6 +1,6 @@
 using Hydro;
 
-namespace Drip.UI;
+namespace Drip.UI.Daisy;
 
 public class DaisyHero : HydroView
 {

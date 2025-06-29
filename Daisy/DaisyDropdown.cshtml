@@ -1,7 +1,13 @@
-﻿@model Drip.UI.Dropdown
+@model Drip.UI.Daisy.DaisyDropdown
+
+@{
+    string title = Model.Title;
+}
+
+<!DOCTYPE html>
 
 <details class="dropdown">
-    <summary class="btn m-1">Show Dropdown</summary>
+    <summary class="btn m-1">@title</summary>
     <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
         @Model.Slot()
         @* <li><a>Item 1</a></li> *@

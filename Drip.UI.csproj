@@ -1,31 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    </PropertyGroup>
 
-   <ItemGroup>
-        <SupportedPlatform Include="browser" />
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ItemGroup>
+        <SupportedPlatform Include="browser"/>
+        <FrameworkReference Include="Microsoft.AspNetCore.App"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CodeMechanic.Types" Version="1.0.20" />
-        <PackageReference Include="Hydro" Version="1.1.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.5" />
+        <PackageReference Include="CodeMechanic.Types" Version="1.0.20"/>
+        <PackageReference Include="Hydro" Version="1.1.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.5"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Areas\" />
-      <Folder Include="Pines\" />
-      <Folder Include="wwwroot\" />
-    </ItemGroup>
+<!--    <ItemGroup>-->
+<!--        <Folder Include="Areas\"/>-->
+<!--        <Folder Include="Pines\"/>-->
+<!--        <Folder Include="wwwroot\"/>-->
+<!--    </ItemGroup>-->
 
     <ItemGroup>
-      <AdditionalFiles Include="Areas\Pages\Extra\Health.cshtml" />
+        <AdditionalFiles Include="Areas\Pages\Extra\Health.cshtml"/>
     </ItemGroup>
 
 </Project>

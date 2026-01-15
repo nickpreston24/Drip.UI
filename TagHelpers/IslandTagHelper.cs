@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using CodeMechanic.Types;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Drip.UI.TagHelpers;
@@ -6,19 +7,12 @@ namespace Drip.UI.TagHelpers;
 [HtmlTargetElement("island")]
 public class IslandTagHelper : TagHelper
 {
-    [HtmlAttributeName("url"), Required] public string? Url { get; set; }
-
-    // TODO: Uncomment these and have them be computed as the new `url`, when Url is null or empty.
-    // i.e. :
-
-    /* var url = Page;
-       if (!string.IsNullOrWhiteSpace(Handler))
-           url += $"?handler={Handler}";
-    */
-    // public string Page { get; set; } = "";
-    // public string? Handler { get; set; }
-
+    [HtmlAttributeName("url")] public string Url { get; set; } = string.Empty;
     [HtmlAttributeName("event")] public IslandEvents Event { get; set; } = IslandEvents.Load;
+
+    public string Page { get; set; } = String.Empty;
+    public string? Handler { get; set; } = String.Empty;
+
     public string Method { get; set; } = "get"; // todo: make an enum for this.
     public string Target { get; set; } = String.Empty;
 
@@ -29,6 +23,13 @@ public class IslandTagHelper : TagHelper
         Console.WriteLine(nameof(ProcessAsync) + $" - event: {Event} - url: {Url}");
         // Changing the tag name to "div"
         output.TagName = "div";
+
+        if (Url.IsEmpty() && Page.NotEmpty())
+        {
+            Url = Page;
+            if (!string.IsNullOrWhiteSpace(Handler))
+                Url += $"?handler={Handler}";
+        }
 
         var @event = Event switch
         {
@@ -48,7 +49,6 @@ public class IslandTagHelper : TagHelper
         var verb = Method.ToLowerInvariant();
 
         output.Attributes.SetAttribute($"hx-{verb}", Url);
-        // output.Attributes.SetAttribute("hx-get", Url);
         output.Attributes.SetAttribute("hx-trigger", @event);
         output.Attributes.SetAttribute("hx-swap", swap);
         if (!string.IsNullOrWhiteSpace(Target))

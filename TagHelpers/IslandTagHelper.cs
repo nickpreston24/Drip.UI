@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using CodeMechanic.Types;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 

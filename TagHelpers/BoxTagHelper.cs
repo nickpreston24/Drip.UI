@@ -17,9 +17,10 @@ public class BoxTagHelper : TagHelper
     public int? Padding { get; set; }
     public string? Rounded { get; set; }
     public string? Shadow { get; set; }
-
-    [HtmlAttributeName("class")]
-    public string? Class { get; set; }
+    
+    // TODO: the encoder hates spaces in classnames - this will need smart Extraction and validation.
+    // [HtmlAttributeName("class")]
+    // public string? Class { get; set; }
 
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
@@ -35,8 +36,8 @@ public class BoxTagHelper : TagHelper
         if (!string.IsNullOrWhiteSpace(Shadow))
             output.AddClass($"shadow-{Shadow}", _encoder);
 
-        if (!string.IsNullOrWhiteSpace(Class))
-            output.AddClass(Class, _encoder);
+        // if (!string.IsNullOrWhiteSpace(Class))
+        //     output.AddClass(Class, _encoder);
 
         var content = await output.GetChildContentAsync();
         output.Content.SetHtmlContent(content);

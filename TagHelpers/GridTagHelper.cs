@@ -9,7 +9,8 @@ public class GridTagHelper : TagHelper
 {
     private readonly HtmlEncoder _encoder;
 
-    [HtmlAttributeName("class")] public string? Class { get; set; }
+    // TODO: the encoder hates spaces in classnames - this will need smart Extraction and validation.
+    // [HtmlAttributeName("class")] public string? Class { get; set; }
 
     public GridTagHelper(HtmlEncoder encoder)
     {

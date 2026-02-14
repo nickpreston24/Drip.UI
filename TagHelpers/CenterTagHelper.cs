@@ -14,8 +14,8 @@ public class CenterTagHelper : TagHelper
         _encoder = encoder;
     }
 
-    [HtmlAttributeName("class")]
-    public string? Class { get; set; }
+    // [HtmlAttributeName("class")]
+    // public string? Class { get; set; }
 
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
@@ -26,8 +26,8 @@ public class CenterTagHelper : TagHelper
         output.AddClass("items-center", _encoder);
         output.AddClass("justify-center", _encoder);
 
-        if (!string.IsNullOrWhiteSpace(Class))
-            output.AddClass(Class, _encoder);
+        // if (!string.IsNullOrWhiteSpace(Class))
+        //     output.AddClass(Class, _encoder);
 
         var content = await output.GetChildContentAsync();
         output.Content.SetHtmlContent(content);

@@ -14,8 +14,10 @@ public class SpacerTagHelper : TagHelper
         _encoder = encoder;
     }
 
-    [HtmlAttributeName("class")]
-    public string? Class { get; set; }
+    // TODO: the encoder hates spaces in classnames - this will need smart Extraction and validation.
+
+    // [HtmlAttributeName("class")]
+    // public string? Class { get; set; }
 
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
@@ -24,7 +26,7 @@ public class SpacerTagHelper : TagHelper
 
         output.AddClass("grow", _encoder);
 
-        if (!string.IsNullOrWhiteSpace(Class))
-            output.AddClass(Class, _encoder);
+        // if (!string.IsNullOrWhiteSpace(Class))
+        //     output.AddClass(Class, _encoder);
     }
 }

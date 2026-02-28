@@ -1,0 +1,25 @@
+@page
+@model Drip.UI.Areas.DevTools.Pages.LogsIsland
+
+@{
+    Layout = null;
+}
+
+
+<div class="card bg-base-100 shadow-md border border-base-300 p-4 overflow-auto max-h-[30rem]"
+     x-data
+     x-init="
+        $refs.container.scrollTop = $refs.container.scrollHeight
+     "
+     x-ref="container">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur dicta doloremque ducimus, ea incidunt
+        iure nisi nulla numquam, omnis quam qui sed sunt totam unde vel veniam veritatis voluptatibus!</p>
+    <h2 class="card-title">Logs - @Model._loggerInfo.log_name</h2>
+
+    <div class="text-sm text-base-content/70 space-y-1">
+        @foreach (var line in Model.LogLines)
+        {
+            <div class="font-mono">@line</div>
+        }
+    </div>
+</div>

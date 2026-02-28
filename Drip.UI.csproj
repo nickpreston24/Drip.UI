@@ -25,7 +25,11 @@
 <!--    </ItemGroup>-->
 
     <ItemGroup>
-        <AdditionalFiles Include="Areas\Pages\Extra\Health.cshtml"/>
+      <ProjectReference Include="..\CodeMechanic.Razorhat\CodeMechanic.Razorhat.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\Pages\" />
     </ItemGroup>
 
 </Project>

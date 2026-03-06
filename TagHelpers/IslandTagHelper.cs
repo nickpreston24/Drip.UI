@@ -17,9 +17,12 @@ public class IslandTagHelper : TagHelper
 
     public IslandSwaps Swap { get; set; } = IslandSwaps.OuterHTML;
 
+    public bool debug { get; set; }
+
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        Console.WriteLine(nameof(ProcessAsync) + $" - event: {Event} - url: {Url}");
+        if (debug) Console.WriteLine(nameof(ProcessAsync) + $" - event: {Event} - url: {Url}");
+        
         // Changing the tag name to "div"
         output.TagName = "div";
 
@@ -46,6 +49,8 @@ public class IslandTagHelper : TagHelper
         };
 
         var verb = Method.ToLowerInvariant();
+
+        if (debug) Console.WriteLine($"url:>> {Url}");
 
         output.Attributes.SetAttribute($"hx-{verb}", Url);
         output.Attributes.SetAttribute("hx-trigger", @event);

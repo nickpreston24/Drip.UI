@@ -2,7 +2,7 @@ using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Drip.UI.TagHelpers;
+namespace Drip.UI;
 
 [HtmlTargetElement("spacer")]
 public class SpacerTagHelper : TagHelper

@@ -2,7 +2,7 @@ using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Drip.UI.TagHelpers;
+namespace Drip.UI;
 
 [HtmlTargetElement("box")]
 public class BoxTagHelper : TagHelper
@@ -17,7 +17,7 @@ public class BoxTagHelper : TagHelper
     public int? Padding { get; set; }
     public string? Rounded { get; set; }
     public string? Shadow { get; set; }
-    
+
     // TODO: the encoder hates spaces in classnames - this will need smart Extraction and validation.
     // [HtmlAttributeName("class")]
     // public string? Class { get; set; }

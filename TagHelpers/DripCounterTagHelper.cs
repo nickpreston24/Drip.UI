@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Drip.UI.TagHelpers;
+namespace Drip.UI;
 
 [HtmlTargetElement("drip-counter")]
 public sealed class DripCounterTagHelper : TagHelper

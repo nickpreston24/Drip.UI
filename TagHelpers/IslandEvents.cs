@@ -1,4 +1,4 @@
-namespace Drip.UI.TagHelpers;
+namespace Drip.UI;
 
 public enum IslandEvents
 {

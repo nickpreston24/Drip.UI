@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <!-- Tell the generator where your Pines components live -->
-    <AdditionalFiles Include="Components/Pines/**" />
+<!--    <AdditionalFiles Include="Components/Pines/**" />-->
     <AdditionalFiles Include="Components/Pines/**/*.html" />
     <AdditionalFiles Include="Components/Pines/**/*.pines.html" />
   </ItemGroup>

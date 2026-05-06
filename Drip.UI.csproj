@@ -7,61 +7,17 @@
     <CompilerGeneratedFilesOutputPath>obj/Generated</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
 
-
-  <ItemGroup>
-    <!-- TEMPORARY BROAD FILTER FOR DEBUGGING -->
-    <!--    <AdditionalFiles Include="**/*"/>-->
-  </ItemGroup>
-
   <ItemGroup>
     <!-- Tell the generator where your Pines components live -->
     <!--    <AdditionalFiles Include="Components/Pines/**" />-->
     <AdditionalFiles Include="Components/Pines/**/*.html"/>
-    <AdditionalFiles Include="Components/Pines/**/*.pines.html"/>
+    <!--    <AdditionalFiles Include="Components/Pines/**/*.pines.html"/>-->
   </ItemGroup>
 
   <ItemGroup>
     <!-- Reference the Source Generator -->
-    <!--    <ProjectReference Include="..\Drip.UI.SourceGen\Drip.UI.SourceGen.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />-->
+    <ProjectReference Include="..\Drip.UI.SourceGen\Drip.UI.SourceGen.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
   </ItemGroup>
-
-
-  <!--  <ItemGroup>-->
-
-  <!--    &lt;!&ndash; Temporary broad include for debugging &ndash;&gt;-->
-  <!--    <AdditionalFiles Include="**/*"/>-->
-
-
-  <!--    &lt;!&ndash; Force all Pines components to be visible to the Source Generator &ndash;&gt;-->
-  <!--&lt;!&ndash;    <AdditionalFiles Include="Components/Pines/**"/>&ndash;&gt;-->
-  <!--&lt;!&ndash;    <AdditionalFiles Include="Components/Pines/**/*.html"/>&ndash;&gt;-->
-  <!--&lt;!&ndash;    <AdditionalFiles Include="Components/Pines/**/*.pines.html"/>&ndash;&gt;-->
-
-  <!--    &lt;!&ndash; Optional: also include as content so Rider sees them &ndash;&gt;-->
-  <!--    <None Include="Components/Pines/**" Visible="true"/>-->
-  <!--  </ItemGroup>-->
-
-  <!--  <PropertyGroup>-->
-  <!--    &lt;!&ndash; Source Generator output settings &ndash;&gt;-->
-  <!--    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>-->
-  <!--    <CompilerGeneratedFilesOutputPath>obj/Generated</CompilerGeneratedFilesOutputPath>-->
-  <!--  </PropertyGroup>-->
-
-
-  <!--  &lt;!&ndash; Optional: hide the Generated folder from Rider/solution explorer noise &ndash;&gt;-->
-  <!--  <ItemGroup>-->
-  <!--    <Compile Remove="obj\Generated\**"/>-->
-  <!--    <None Include="obj\Generated\**"/>-->
-  <!--  </ItemGroup>-->
-
-
-  <!--  <ItemGroup>-->
-  <!--    <ProjectReference Include="..\Drip.UI.SourceGen\Drip.UI.SourceGen.csproj"-->
-
-  <!--                      OutputItemType="Analyzer"-->
-  <!--                      ReferenceOutputAssembly="false"/>-->
-  <!--  </ItemGroup>-->
-
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -84,10 +40,10 @@
     <PackageReference Include="CodeMechanic.Logging" Version="1.0.3"/>
     <PackageReference Include="CodeMechanic.Razorhat" Version="1.0.2"/>
     <PackageReference Include="CodeMechanic.Types" Version="1.0.20"/>
-    <PackageReference Include="Drip.UI.SourceGen" Version="1.0.0"
-                      PrivateAssets="all"
-                      ExcludeAssets="runtime"
-    />
+    <!--    <PackageReference Include="Drip.UI.SourceGen" Version="1.0.0"-->
+    <!--                      PrivateAssets="all"-->
+    <!--                      ExcludeAssets="runtime"-->
+    <!--    />-->
     <PackageReference Include="Hydro" Version="1.3.0"/>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.5"/>
   </ItemGroup>
@@ -103,7 +59,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Pages\"/>
+    <!--    <Folder Include="Areas\Pages\"/>-->
   </ItemGroup>
 
 </Project>

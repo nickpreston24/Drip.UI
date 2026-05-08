@@ -17,7 +17,7 @@ public class IslandTagHelper : TagHelper
 
     public IslandSwaps Swap { get; set; } = IslandSwaps.InnerHTML;
 
-    public bool debug { get; set; } = true;
+    public bool debug { get; set; } = false;
 
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Drip.UI;
 
-[HtmlTargetElement("modal")]
+[HtmlTargetElement("hydro-modal")]
 public class HydroModal : HydroView
 {
     public string Title { get; set; } = String.Empty;

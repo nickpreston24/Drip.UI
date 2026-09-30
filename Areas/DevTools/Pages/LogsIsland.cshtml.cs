@@ -1,6 +1,4 @@
 using System.Globalization;
-using System.Runtime.CompilerServices;
-using CodeMechanic.Diagnostics;
 using CodeMechanic.Logging;
 using CodeMechanic.Razorhat;
 
@@ -12,15 +10,14 @@ public class LogsIsland : RazorhatIsland
 
     public LogsIsland(SerilogLoggerName loggerInfo)
     {
-        loggerInfo.Dump(nameof(loggerInfo));
-        // _loggerInfo = loggerInfo ?? throw new ArgumentNullException(nameof(loggerInfo));
+        _loggerInfo = loggerInfo;
     }
 
     public List<string> LogLines { get; private set; } = new();
 
-    public async Task OnGet([CallerMemberName] string called_by = null)
+    public async Task OnGet()
     {
-        Console.WriteLine($"{nameof(LogsIsland)}:>> LOGS ISLAND called by '{called_by}' ");
+        await Run();
     }
 
     public override async Task Run()
@@ -35,9 +32,18 @@ public class LogsIsland : RazorhatIsland
 
         // Construct log path
         var home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-        var logPath = Path.Combine(home, $".dotnet/tools/.razorhat/{dotFolder}", $"{logName}.log");
+        var dir = Path.Combine(home, ".dotnet", "tools", dotFolder);
+        if (!Directory.Exists(dir))
+            return;
 
-        if (!System.IO.File.Exists(logPath))
+        var exact = Path.Combine(dir, $"{logName}.log");
+        var logPath = System.IO.File.Exists(exact)
+            ? exact
+            : Directory.GetFiles(dir, $"{logName}*.log")
+                .OrderByDescending(System.IO.File.GetLastWriteTimeUtc)
+                .FirstOrDefault();
+
+        if (string.IsNullOrEmpty(logPath))
             return;
 
         var lines = await System.IO.File.ReadAllLinesAsync(logPath);
